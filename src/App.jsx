@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import search from "./assets/icons/search.svg";
-import MiniCard from "./Components/SmallCard";
+import SmallCard from "./Components/SmallCard";
 import WeatherCard from "./Components/WeatherCard";
 import BackgroundLayout from "./Components/BackgroundLayout";
 import Header from "./components/Header";
@@ -152,7 +152,7 @@ function App() {
       <BackgroundLayout weather={weather} />
       <div className="flex justify-center gap-8 flex-wrap w-full mt-12 mb-12">
         {values?.slice(1, 6).map((curr) => (
-          <MiniCard
+          <SmallCard
             key={curr.datetime}
             time={curr.datetime}
             temp={curr.temp}
