@@ -24,8 +24,8 @@ function Services() {
 
   return (
     <>
-      <div className="w-full text-center bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 text-white font-mono p-10">
-        <h1 className="font-extrabold text-5xl text-white mb-8 tracking-wider">
+      <div className="w-full text-center  bg-gradient-to-r from-gray-900 via-blue-600 to-gray-900 text-white font-mono p-10">
+        <h1 className="font-extrabold  text-xl md:text-5xl text-white mb-8 tracking-wider">
           Our Services
         </h1>
         <p className="mb-8">

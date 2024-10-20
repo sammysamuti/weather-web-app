@@ -77,7 +77,7 @@ function App() {
 
   return (
     <>
-      <div className="w-full bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 text-white font-mono pt-24 md:pt-0">
+      <div className="w-full bg-gradient-to-r from-gray-900 via-blue-600 text-white font-mono pt-24 md:pt-0">
         {/* Header */}
         <Header />
 
@@ -110,7 +110,7 @@ function App() {
                 />
                 <button
                   type="submit"
-                  className="ml-2 sm:ml-3 bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 text-white px-3 py-1 sm:px-4 sm:py-2 rounded-full transition duration-300 ease-in-out"
+                  className="ml-2 sm:ml-3  bg-gradient-to-r from-gray-900 via-blue-600 to-gray-900 text-white px-3 py-1 sm:px-4 sm:py-2 rounded-full transition duration-300 ease-in-out"
                 >
                   Search
                 </button>
