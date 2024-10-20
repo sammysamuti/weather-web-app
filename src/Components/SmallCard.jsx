@@ -7,7 +7,7 @@ import snow from "../assets/icons/snow.png";
 import storm from "../assets/icons/storm.png";
 import wind from "../assets/icons/windy.png";
 
-const MiniCard = ({ time, temp, minTemp, maxTemp, iconString }) => {
+const SmallCard = ({ time, temp, minTemp, maxTemp, iconString }) => {
   const [icon, setIcon] = useState();
 
   useEffect(() => {
@@ -57,4 +57,4 @@ const MiniCard = ({ time, temp, minTemp, maxTemp, iconString }) => {
   );
 };
 
-export default MiniCard;
+export default SmallCard;
