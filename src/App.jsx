@@ -9,6 +9,7 @@ import About from "./Components/About";
 import Services from "./Components/Services";
 import Footer from "./Components/Footer";
 
+
 function App() {
   const [input, setInput] = useState("");
   const [weather, setWeather] = useState({});
@@ -23,43 +24,44 @@ function App() {
 
     if (isZipCode) {
       params = {
-        aggregateHours: "24",
-        postalCode: place,
-        contentType: "json",
-        unitGroup: "metric",
-        shortColumnNames: 0,
+        zip: `${place},us`,
+        units: "metric",
+        appid: import.meta.env.VITE_OPENWEATHER_API_KEY,
       };
     } else {
       params = {
-        aggregateHours: "24",
-        location: place,
-        contentType: "json",
-        unitGroup: "metric",
-        shortColumnNames: 0,
+        q: place,
+        units: "metric",
+        appid: import.meta.env.VITE_OPENWEATHER_API_KEY,
       };
     }
 
     const options = {
       method: "GET",
-      url: "https://visual-crossing-weather.p.rapidapi.com/forecast",
+      url: "https://api.openweathermap.org/data/2.5/forecast", 
       params,
-      headers: {
-        "X-RapidAPI-Key": import.meta.env.VITE_API_KEY,
-        "X-RapidAPI-Host": "visual-crossing-weather.p.rapidapi.com",
-      },
     };
 
     try {
       const response = await axios.request(options);
-      const thisData = Object.values(response.data.locations)[0];
-      setLocation(thisData.address);
-      setValues(thisData.values);
-      setWeather(thisData.values[0]);
+
+      const forecastData = response.data; // This is for multiple data points for the next 5 days
+
+      setLocation(forecastData.city.name);
+      setWeather({
+        temp: forecastData.list[0].main.temp,
+        humidity: forecastData.list[0].main.humidity,
+        windspeed: forecastData.list[0].wind.speed,
+        conditions: forecastData.list[0].weather[0].description,
+      });
+
+      setValues(forecastData.list); 
     } catch (error) {
       console.error(error);
       setError("This place does not exist or check your network connection.");
     }
   };
+
 
   useEffect(() => {
     fetchWeather();
@@ -92,7 +94,7 @@ function App() {
               </h1>
               <form
                 onSubmit={submitCity}
-                className="bg-white w-[90%] md:w-full p-2 sm:p-3 ml-4 mr-4 sm:ml-6 sm:mr-6 md:ml-0 md:mr-0 flex items-center rounded-full shadow-xl border-2 border-gray-300 focus-within:border-blue-500 transition-all duration-500 ease-in-out transform hover:scale-10"
+                className="bg-white w-[90%] md:w-full p-2 sm:p-3 ml-4 mr-4 sm:ml-6 sm:mr-6 md:ml-0 md:mr-0 flex items-center rounded-full shadow-xl border-2 border-gray-300 focus-within:border-blue-500 transition-all duration-500 ease-in-out"
               >
                 <img
                   src={search}
@@ -120,10 +122,9 @@ function App() {
           <div className="flex justify-center items-center w-full md:w-[50%] mb-12 mt-20">
             <WeatherCard
               place={thisLocation}
-              windspeed={weather.wspd}
+              windspeed={weather.windspeed}
               humidity={weather.humidity}
               temperature={weather.temp}
-              heatIndex={weather.heatindex}
               iconString={weather.conditions}
               conditions={weather.conditions}
             />
@@ -151,14 +152,15 @@ function App() {
       {/* Weather Forecast Cards */}
       <BackgroundLayout weather={weather} />
       <div className="flex justify-center gap-8 flex-wrap w-full mt-12 mb-12">
-        {values?.slice(1, 6).map((curr) => (
+        {/* {console.log(values)} */}
+        {values?.slice(0, 5).map((curr) => (
           <SmallCard
-            key={curr.datetime}
-            time={curr.datetime}
-            temp={curr.temp}
-            minTemp={curr.mint}
-            maxTemp={curr.maxt}
-            iconString={curr.conditions}
+            key={curr.dt}
+            time={new Date(curr.dt * 1000).toLocaleString()}
+            temp={curr.main.temp}
+            minTemp={curr.main.temp_min}
+            maxTemp={curr.main.temp_max}
+            iconString={curr.weather[0].description}
           />
         ))}
       </div>
