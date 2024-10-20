@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import search from "./assets/icons/search.svg";
-import MiniCard from "./Components/MiniCard";
+import MiniCard from "./Components/SmallCard";
 import WeatherCard from "./Components/WeatherCard";
 import BackgroundLayout from "./Components/BackgroundLayout";
 import Header from "./components/Header";
