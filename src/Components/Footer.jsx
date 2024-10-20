@@ -22,9 +22,7 @@ function Footer() {
               <div className="text-lg font-semibold mb-2">Contents</div>
               <ul className="space-y-2 text-neutral-500 text-sm md:text-base">
                 <li>About Us</li>
-                <li>About Ethiopia</li>
-                <li>Gallery</li>
-                <li>Blog</li>
+                <li>Services</li>
               </ul>
             </div>
 
@@ -48,7 +46,6 @@ function Footer() {
                 <a href="#" className="text-neutral-500">
                   Facebook
                 </a>
-
               </div>
             </div>
           </div>
