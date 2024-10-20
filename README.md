@@ -16,14 +16,16 @@
    Run the following command to install all necessary dependencies:
    npm install
    
-
-4. Run the Project  
-   Start the Vite development server:
+4. Create an env file
+   such as this ".env" in the react folder and insert you api key into it as VITE_OPENWEATHER_API_KEY=yourapikey
+   
+5. Run the Project  
+   Start the Vite development server by running the following command:
    npm run dev
    
 
 5. Open the App in Browser  
-   The app should now be running at `http://localhost:5173` or if it's used you should either way check your terminal. So open the link in your browser to view the project in action.
+   The app should now be running at `http://localhost:5173` or incase it's used you should either way check your terminal. So open the link in your browser to view the project in action.
 
 
 
@@ -37,6 +39,16 @@
 - React Hooks: Used for managing state and side effects (e.g., `useState`, `useEffect`).
 - Custom Hooks: `useDate` to handle dynamic time formatting in the app.
 
+
+ Libraries Used
+
+- axios (`^1.7.7`): Promise-based HTTP client for making requests.
+- dotenv (`^16.4.5`): Loads environment variables from a `.env` file.
+- react (`^18.3.1`): The core library for building user interfaces in React.
+- react-dom (`^18.3.1`): Helps render React components to the DOM.
+- react-icons (`^5.3.0`): Provides popular icons as React components.
+- react-slick (`^0.30.2`): A customizable carousel/slider component for React.
+- slick-carousel (`^1.8.1`): A jQuery-based carousel/slider library, typically used with `react-slick`.
 
 
  Known Issues/Assumptions
