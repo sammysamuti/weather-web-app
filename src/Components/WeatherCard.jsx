@@ -47,9 +47,9 @@ const WeatherCard = ({
         <img
           src={icon}
           alt="weather_icon"
-          className="w-24 h-24 md:w-16 md:h-16 lg:w-32 lg:h-32 "
+          className="w-22 h-22 md:w-16 md:h-16 lg:w-32 lg:h-32 "
         />
-        <p className="font-bold text-5xl md:text-3xl lg:text-4xl">
+        <p className="font-bold text-3xl md:text-3xl lg:text-4xl">
           {temperature} &deg;C
         </p>
       </div>
