@@ -61,17 +61,6 @@
 
 
 
- Contribution
-
-If you want to contribute to this project:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes and commit them (`git commit -am 'Add new feature'`).
-4. Push to your branch (`git push origin feature-branch`).
-5. Create a pull request.
-
-
 
  License
 
